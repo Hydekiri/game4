@@ -1,23 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class GameUI : MonoBehaviour
-{
-    public static GameUI Instance { set; get; }
 
-    private void Awake()
+public class GmaeUI : MonoBehaviour
+{   
+    public static GmaeUI Intance { get; set; }
+
+    [SerializeField] private Animator menuAnimator;
+    // Start is called before the first frame update
+    private void Awale(){
+        Intance = this;
+    }
+    //Button
+    public void OnlocalGameButton(){
+        menuAnimator.SetTrigger("IngameMenu");
+    }
+    public void OnOnlineGameButton(){
+        menuAnimator.SetTrigger("OnlineMenu");
+    }
+    public void OnOnlineHostButton(){
+        menuAnimator.SetTrigger("HostMenu");
+    }
+    public void OnOnlineConnectButton(){
+        Debug.Log("OnOnlineConnectButton");
+    }
+    public void OnOnlineBackButton(){
+        menuAnimator.SetTrigger("StartMenu");
+    }
+    public void OnHostBackButton(){
+        menuAnimator.SetTrigger("OnlineMenu");
+    }
+    void Start()
     {
-        Instance = this;
+        
     }
 
-    // Buttons
-    public void OnLocalGameButton()
+    // Update is called once per frame
+    void Update()
     {
-        Debug.Log("OnLocalGameButton");
-    }
-
-    public void OnOnlineGameButton()
-    {
-        Debug.Log("OnOnlineGameButton");
+        
     }
 }
